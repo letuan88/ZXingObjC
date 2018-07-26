@@ -53,6 +53,20 @@
   return self;
 }
 
+- (id)initWithData:(NSData *)data {
+  if (self = [super init]) {
+    _length = (unsigned int) [data length];
+    if (_length > 0) {
+      _array = (int8_t *)calloc(_length, sizeof(int8_t));
+      memcpy(_array, (int8_t *) [data bytes], _length);
+    } else {
+      _array = nil;
+    }
+  }
+  
+  return self;
+}
+
 - (void)dealloc {
   if (_array) {
     free(_array);

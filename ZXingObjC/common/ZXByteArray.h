@@ -21,5 +21,6 @@
 
 - (id)initWithLength:(unsigned int)length;
 - (id)initWithBytes:(int)byte1, ...;
+- (id)initWithData:(NSData *)data;
 
 @end
